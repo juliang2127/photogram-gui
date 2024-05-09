@@ -12,7 +12,29 @@ class PhotosController < ApplicationController
   end
 
   def create
+    @new_photo_info = Photo.new
+    @new_photo_info.image = params.fetch("input_image")
+    @new_photo_info.caption = params.fetch("input_caption")
+    @new_photo_info.owner_id = params.fetch("input_owner_id")
+    @new_photo_info.save
 
-    #redirect_to("/photos/#{#photos.username}")
+    redirect_to("/photos/#{@new_photo_info.id}")
+  end
+
+  def update
+    the_id = params.fetch("path_id")
+    @updated_post = Photo.where( :id => the_id).at(0)
+    @updated_post.image = params.fetch("input_image")
+    @updated_post.caption = params.fetch("input_caption")
+    @updated_post.save
+    redirect_to("/photos/#{@updated_post.id}")
+  end
+
+  def destroy
+    the_id = params.fetch("path_id")
+    @post = Photo.where({ :id => the_id }).at(0)
+
+    @post.destroy
+    redirect_to("/photos")
   end
 end

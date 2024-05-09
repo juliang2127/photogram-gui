@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   # photos
   get("/photos", { :controller => "photos", :action => "index"})
   get("/photos/:photo_id", { :controller => "photos", :action => "show"})
-  post("/insert_photo_record", { :controller => "photos", :action => "create" }) 
+  post("/insert_photo_record", { :controller => "photos", :action => "create" })
+  post("/update_photo/:path_id", { :controller => "photos", :action => "update" }) 
+  get("/delete_photo/:path_id", { :controller => "photos", :action => "destroy" })
 
 
 

@@ -37,7 +37,7 @@
     </td>
   </tr>
 
-    <% @all_photos.each do |a_photo| %>
+    <% @all_photos.order({:created_at => :desc}).each do |a_photo| %>
     <tr>
       <td>
         <img src="<%= a_photo.image%>" height="300px">
@@ -48,7 +48,7 @@
       </td>
 
       <td>
-        <%= a_photo.poster%>
+        <%= a_photo.poster.username%>
       </td>
 
       <td>
