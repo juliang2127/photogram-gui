@@ -1,0 +1,32 @@
+<h1>Photo Details</h1>
+
+<dl>
+  <dt>
+    Image
+  </dt>
+  <dd>
+    <img src="<%= @photo_details.image %>" height="300px">
+  </dd>
+
+  <dt>
+    Caption
+  </dt>
+  <dd>
+    <p>
+      <%= @photo_details.caption %>
+    </p>
+  </dd>
+
+  <dt>
+    Owner
+  </dt>
+  <dd>
+    <%= @photo_details.poster.username %>
+  </dd>
+
+  <dt>
+    Posted
+  </dt>
+  <dd>
+    <%= @photo_details.created_at %>
+  </dd>

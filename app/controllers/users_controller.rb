@@ -21,8 +21,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    the_new_user_url = params.fetch("path_id")
-    matching_user = User.where({:username => the_new_user_url})
+    the_id = params.fetch("path_id")
+    matching_user = User.where({:id => the_id})
     @the_user = matching_user.at(0)
     @the_user.username = params.fetch("input_username")
     
